@@ -1,0 +1,8 @@
+<library path="lib/libpico_flexx_to_ros_transform">
+  <class name="pico_flexx_to_ros_transform/PicoFlexxtoROSTransform"
+     type="pico_flexx_to_ros_transform::PicoFlexxtoROSTransform"
+     base_class_type="nodelet::Nodelet">
+    <description>
+    </description>
+  </class>
+</library>

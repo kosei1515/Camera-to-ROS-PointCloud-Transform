@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name = "nodelet_manager_name" default = "nodelet_manager"/>
+    <arg name = "input" default = "/input"/>
+    <arg name = "output" default="/output"/>
+    <arg name = "output_tf" default="pico_flexx_ros_link"/>
+
+    <!-- nodelet manager -->
+    <node pkg = "nodelet" type = "nodelet" name = "$(arg nodelet_manager_name)" args = "manager" output="screen"/>
+
+    <node pkg="nodelet" type="nodelet" name="PicoFlexxToRosTransform"
+        args="load pico_flexx_to_ros_transform/PicoFlexxtoROSTransform $(arg nodelet_manager_name)" >
+        <remap from = "input" to = "$(arg input)"/>
+        <remap from = "output" to = "$(arg output)"/>
+        <param name="output_tf" value="$(arg output_tf)" />
+    </node>
+
+</launch>
